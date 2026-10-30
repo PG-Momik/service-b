@@ -1,0 +1,30 @@
+name: Tag release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-branch:
+        description: Release branch to tag
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  tag:
+    name: Tag staged release
+    runs-on: ubuntu-latest
+    environment: release-tag
+    steps:
+      - name: Check out trunk
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Tag release
+        env:
+          RELEASE_BRANCH: ${{ inputs.release-branch }}
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/tag-release.sh
