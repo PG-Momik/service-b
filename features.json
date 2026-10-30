@@ -1,7 +1,8 @@
 [
-  { "name": "ingest", "enabled": true },
-  { "name": "dedupe", "enabled": true },
-  { "name": "retry", "enabled": true },
-  { "name": "metrics", "enabled": true },
-  { "name": "new-pipeline", "enabled": false }
+  {"name": "ingest", "enabled": true},
+  {"name": "dedupe", "enabled": true},
+  {"name": "retry", "enabled": true},
+  {"name": "metrics", "enabled": true},
+  {"name": "new-pipeline", "enabled": false},
+  {"name": "export", "enabled": false}
 ]
