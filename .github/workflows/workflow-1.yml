@@ -57,7 +57,7 @@ jobs:
         run: echo "dummy step"
 
       - name: Dummy step 3
-        uses: PG-Momik/shared-actions/actions/action-6@5bde4226c2dd602dce17645d1c271a8c5f79f3ea
+        uses: PG-Momik/shared-actions/actions/action-6@4fb866cd843bb1af966132c7d5f71d9d56f07bb3
 
       - name: Dummy step 4
         run: echo "dummy step"
@@ -117,4 +117,4 @@ jobs:
           fetch-depth: 0
 
       - name: Dummy step 2
-        uses: PG-Momik/shared-actions/actions/action-3@5bde4226c2dd602dce17645d1c271a8c5f79f3ea
+        uses: PG-Momik/shared-actions/actions/action-3@4fb866cd843bb1af966132c7d5f71d9d56f07bb3
