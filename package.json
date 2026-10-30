@@ -1,0 +1,8 @@
+{
+  "name": "service-b",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "lint": "node --check app.js && node --check test/app.test.js"
+  }
+}

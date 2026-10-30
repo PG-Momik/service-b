@@ -1,0 +1,19 @@
+name: Workflow 4
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  job-1:
+    permissions:
+      contents: read
+      id-token: write
+    uses: PG-Momik/shared-actions/.github/workflows/workflow-6.yml@4ba6382eb2d0e4982c36bf857a0eb56ec2e0d021

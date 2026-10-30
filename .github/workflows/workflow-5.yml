@@ -1,0 +1,25 @@
+name: Workflow 5
+
+on:
+  pull_request:
+    types: opened
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Dummy step 1
+        run: echo "dummy step"
