@@ -1,0 +1,36 @@
+name: Cut release
+
+on:
+  workflow_dispatch:
+    inputs:
+      hotfix-from-tag:
+        description: Production tag to patch, leave blank for a normal release
+        required: false
+        type: string
+      patch-of:
+        description: Release to patch when rolling back
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  cut:
+    name: Cut release branch
+    runs-on: ubuntu-latest
+    environment: release-cut
+    steps:
+      - name: Check out trunk
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Cut release
+        uses: PG-Momik/shared-actions/actions/cut-release@6d62a381cd9f6617452293412561dd59f323a108
+        with:
+          version-scheme: calver
+          hotfix-from-tag: ${{ inputs.hotfix-from-tag }}
+          patch-of: ${{ inputs.patch-of }}
+          deploy-workflow: workflow-1.yml

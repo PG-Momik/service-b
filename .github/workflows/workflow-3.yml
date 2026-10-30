@@ -1,10 +1,10 @@
-name: Workflow 3
+name: '[Updated] Workflow 3'
 
 on:
   pull_request:
     branches:
       - main
-      - staging
+      - 'release/**'
     types:
       - opened
       - synchronize
@@ -13,7 +13,6 @@ on:
   merge_group:
     branches:
       - main
-      - staging
 
 permissions:
   contents: read
@@ -23,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dummy step 1
-        uses: PG-Momik/shared-actions/actions/action-2@main
+        uses: PG-Momik/shared-actions/actions/action-2@6d62a381cd9f6617452293412561dd59f323a108
         with:
           use-master: false
+          branch-rules: |
+            main:feature/xp-*,hotfix/xp-*

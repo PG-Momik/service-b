@@ -1,0 +1,24 @@
+name: Check release fix
+
+on:
+  pull_request:
+    branches:
+      - 'release/**'
+
+permissions:
+  contents: read
+
+jobs:
+  check-release-fix:
+    name: check-release-fix
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out proposed fix
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - name: Check fix is on trunk
+        uses: PG-Momik/shared-actions/actions/check-release-fix@6d62a381cd9f6617452293412561dd59f323a108
+        with:
+          base-branch: ${{ github.base_ref }}
