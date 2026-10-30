@@ -3,5 +3,5 @@ const test = require('node:test');
 const { visibleFeatures } = require('../app');
 
 test('only enabled features appear', () => {
-  assert.deepEqual(visibleFeatures(), ['ingest', 'dedupe', 'retry', 'metrics']);
+  assert.deepEqual(visibleFeatures(), ['ingest', 'dedupe', 'retry', 'metrics', 'caching']);
 });
