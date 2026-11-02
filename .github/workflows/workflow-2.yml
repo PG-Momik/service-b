@@ -32,7 +32,7 @@ jobs:
           github.event_name == 'merge_group' ||
           (github.event_name == 'pull_request' &&
           !contains(fromJSON('["dev", "staging", "main", "master"]'), github.head_ref))
-        uses: PG-Momik/shared-actions/actions/action-5@4fb866cd843bb1af966132c7d5f71d9d56f07bb3
+        uses: PG-Momik/shared-actions/actions/action-5@f6f631ccbbc35aa4aa977144bebd38a70261225b
 
       - name: Dummy step 3
         if: >-
@@ -41,7 +41,7 @@ jobs:
           !contains(fromJSON('["dev", "staging", "main", "master"]'), github.head_ref))
         run: echo "dummy step"
       - name: Dummy step 4
-        uses: PG-Momik/shared-actions/actions/action-6@4fb866cd843bb1af966132c7d5f71d9d56f07bb3
+        uses: PG-Momik/shared-actions/actions/action-6@f6f631ccbbc35aa4aa977144bebd38a70261225b
 
       - name: Dummy step 5
         run: echo "dummy step"
@@ -57,18 +57,18 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
       - name: Dummy step 2
-        uses: PG-Momik/shared-actions/actions/action-6@4fb866cd843bb1af966132c7d5f71d9d56f07bb3
+        uses: PG-Momik/shared-actions/actions/action-6@f6f631ccbbc35aa4aa977144bebd38a70261225b
 
       - name: Dummy step 3
         continue-on-error: true
-        uses: PG-Momik/shared-actions/actions/action-7@main
+        uses: PG-Momik/shared-actions/actions/action-7@f6f631ccbbc35aa4aa977144bebd38a70261225b
 
       - name: Dummy step 4
         run: echo "dummy step"
 
       - name: Dummy step 5
         continue-on-error: true
-        uses: PG-Momik/shared-actions/actions/action-9@main
+        uses: PG-Momik/shared-actions/actions/action-9@f6f631ccbbc35aa4aa977144bebd38a70261225b
 
   job-3:
     name: Required check 3
@@ -78,7 +78,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
       - name: Dummy step 2
-        uses: PG-Momik/shared-actions/actions/action-6@4fb866cd843bb1af966132c7d5f71d9d56f07bb3
+        uses: PG-Momik/shared-actions/actions/action-6@f6f631ccbbc35aa4aa977144bebd38a70261225b
 
       - name: Dummy step 3
         run: echo "dummy step"

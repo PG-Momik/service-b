@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dummy step 1
-        uses: PG-Momik/shared-actions/actions/action-2@6d62a381cd9f6617452293412561dd59f323a108
+        uses: PG-Momik/shared-actions/actions/action-2@f6f631ccbbc35aa4aa977144bebd38a70261225b
         with:
           use-master: false
           branch-rules: |

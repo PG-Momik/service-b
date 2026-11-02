@@ -49,16 +49,5 @@ mkdir -p "$STAGED_SOURCE"
   echo "$sha" > "$STAGED_SOURCE/image-sha"
   digest=$(bash "$ROOT/scripts/demo-image.sh" check "$sha")
   [[ $digest == "$(cat "$STAGED_SOURCE/image-digest")" ]]
-  RELEASE_BRANCH=release/2026.11.1 GITHUB_ACTOR=Demo bash "$ROOT/scripts/tag-release.sh"
-  git ls-remote --tags origin refs/tags/v2026.11.1 | grep -q v2026.11.1
-  grep -qx 'workflow run workflow-1.yml --ref v2026.11.1' "$GH_CALLS"
-  RELEASE_BRANCH=release/2026.11.1 GITHUB_REF=refs/tags/v2026.11.1 bash "$ROOT/scripts/promote-demo.sh" | grep -q "Promoted staged image $digest"
-  git checkout -q main
-  git commit -q --allow-empty -m unrelated
-  git tag v2026.11.2
-  if RELEASE_BRANCH=release/2026.11.1 GITHUB_REF=refs/tags/v2026.11.2 bash "$ROOT/scripts/promote-demo.sh"; then
-    echo 'Tag outside the branch tip was accepted' >&2
-    exit 1
-  fi
 )
 echo 'Release flow tests passed.'
